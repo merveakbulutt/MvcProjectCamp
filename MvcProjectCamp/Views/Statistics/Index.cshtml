@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<div class="container">
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <div class="col" >
+            <div class="p-3 border " style="background-color: #54a0ff ; height:135px" >
+                <h3 style="color:#fff">@ViewBag.q1</h3>
+                <p style="color:#fff">   Toplam Kategori Sayısı  </p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 border " style="background-color: #48dbfb">
+                <h3 style="color:#fff">@ViewBag.q2</h3>
+                <p style="color:#fff">Yazılım Kategorisi  Başlık Sayısı</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 border " style="background-color: #1dd1a1">
+                <h3 style="color:#fff">@ViewBag.q3</h3>
+                <p style="color:#fff">Yazar adında 'A' harfi geçen yazar sayısı</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 border " style="background-color: #ff9ff3">
+                <h3 style="color:#fff">@ViewBag.q4</h3>
+                <p style="color:#fff">En Fazla Başlığa Sahip Kategori Adı</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 border " style=" background-color: #a29bfe">
+                <h3 style="color:#fff">@ViewBag.q5</h3>
+                <p style="color:#fff">Kategori Tablosundaki aktif-pasif farkı</p>
+            </div>
+        </div>
+
+    </div>
+</div>

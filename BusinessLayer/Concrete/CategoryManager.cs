@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Category category)
         {
-            throw new NotImplementedException();
+           _categoryDal.Delete(category);
         }
 
         public List<Category> GetAll()
@@ -39,9 +39,14 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public Category GetById(int id)
+        {
+            return _categoryDal.Get(x => x.CategoryId==id);
+        }
+
         public void Update(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(category);
         }
     }
 }
