@@ -14,7 +14,6 @@ namespace BusinessLayer.Abstract
         void Add(Category category);
         void Update(Category category);
         void Delete(Category category);
-        List<Category> GetAll(Expression<Func<Category, bool>> filter);
         Category GetById(int id);
     }
 }

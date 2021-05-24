@@ -34,10 +34,7 @@ namespace BusinessLayer.Concrete
             return _categoryDal.List();
         }
 
-        public List<Category> GetAll(Expression<Func<Category, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public Category GetById(int id)
         {
