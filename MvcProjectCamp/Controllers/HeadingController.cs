@@ -13,8 +13,8 @@ namespace MvcProjectCamp.Controllers
     {
 
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
-        CategoryManager cm= new CategoryManager(new EfCategoryDal());
-        WriterManager wm= new WriterManager(new EfWriterDal());
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         public ActionResult Index()
         {
@@ -40,7 +40,7 @@ namespace MvcProjectCamp.Controllers
                                                 }).ToList();
 
             ViewBag.vlc = valuecategory;
-            ViewBag.vlw= valuewriter;
+            ViewBag.vlw = valuewriter;
             return View();
         }
 
@@ -52,9 +52,34 @@ namespace MvcProjectCamp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ContentByHeading()
+        [HttpGet]
+        public ActionResult EditHeading(int id)
         {
-            return View();
+            List<SelectListItem> valuecategory = (from x in cm.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.vlc = valuecategory;
+            var headingValue = hm.GetById(id);
+            return View(headingValue);
+        }
+        [HttpPost]
+        public ActionResult EditHeading(Heading p)
+        {
+
+            hm.Update(p);
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var headingValue = hm.GetById(id);
+            headingValue.HeadingStatus = false;
+            hm.Delete(headingValue);
+            return RedirectToAction("Index");
         }
     }
 }

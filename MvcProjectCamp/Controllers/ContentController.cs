@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +10,19 @@ namespace MvcProjectCamp.Controllers
 {
     public class ContentController : Controller
     {
-        // GET: Content
+
+        ContentManager cm = new ContentManager(new EfContentDal());
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult ContentByHeading()
+        public ActionResult ContentByHeading(int id)
         {
-            return View();
+            var contentvalues = cm.GetListByHeadingId(id);
+            return View(contentvalues);
         }
+
+        
     }
 }
